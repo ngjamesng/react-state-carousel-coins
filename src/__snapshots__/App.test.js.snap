@@ -13,9 +13,10 @@ exports[`matches snapshot 1`] = `
       </h1>
       <div
         class="Carousel-main"
+        data-testid="carousel-main"
       >
         <i
-          class="fas fa-chevron-circle-left fa-2x \${leftIconHidden"
+          class="fas fa-chevron-circle-left fa-2x hidden"
           data-testid="left-arrow"
         />
         <div
@@ -38,7 +39,7 @@ exports[`matches snapshot 1`] = `
           </small>
         </div>
         <i
-          class="fas fa-chevron-circle-right fa-2x \${rightIconHidden"
+          class="fas fa-chevron-circle-right fa-2x "
           data-testid="right-arrow"
         />
       </div>

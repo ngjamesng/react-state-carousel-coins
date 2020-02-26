@@ -29,13 +29,30 @@ it("works when you click on the right arrow", function() {
 
 
 it("should move to the first image when clicking the left arrow from second image", function(){
-  const { getByTestId, getByText, debug } = render(<Carousel />);
-  debug();
+  const { getByTestId, getByText} = render(<Carousel />);
   const imageCount = getByText("Image 1 of 3.");
-  const leftArrow = getByTestId("left-arrow");
   const rightArrow = getByTestId("right-arrow");
+  const leftArrow = getByTestId("left-arrow");
   fireEvent.click(rightArrow);
   expect(imageCount).toHaveTextContent("Image 2 of 3.");
   fireEvent.click(leftArrow);
   expect(imageCount).toHaveTextContent("Image 1 of 3.");
 });
+
+it("should hide the left arrow at the first image", function(){
+  const {getByTestId}= render(<Carousel />);
+  const leftArrow = getByTestId("left-arrow");
+
+  expect (leftArrow).toHaveClass("hidden");
+})
+
+it("should hide the right arrow at the last image", function(){
+  const {getByTestId}= render(<Carousel />);
+  
+  const rightArrow = getByTestId("right-arrow");
+
+  fireEvent.click(rightArrow);
+  fireEvent.click(rightArrow);
+
+  expect (rightArrow).toHaveClass("hidden");
+})
